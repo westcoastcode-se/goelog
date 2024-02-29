@@ -29,14 +29,14 @@ func (r *EventReader) ReadString() string {
 }
 
 // ReadInt32 reads a 32-bit integer from the storage
-func (r *EventReader) ReadInt32() int32 {
+func (r *EventReader) ReadInt32() int {
 	var value int32
 	err := binary.Read(r.r, binary.LittleEndian, &value)
 	if err != nil {
 		log.Panicf("failed to read binary data: %e", err)
 	}
 
-	return value
+	return int(value)
 }
 
 // ReadFloat32 reads a 32-bit decimal from the storage

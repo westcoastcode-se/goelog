@@ -25,8 +25,8 @@ func (w *EventWriter) WriteString(val string) {
 }
 
 // WriteInt32 writes the supplied 32-bit integer to the storage
-func (w *EventWriter) WriteInt32(val int32) {
-	err := binary.Write(w.buf, binary.LittleEndian, val)
+func (w *EventWriter) WriteInt32(val int) {
+	err := binary.Write(w.buf, binary.LittleEndian, int32(val))
 	if err != nil {
 		log.Panicf("failed to write binary data. %e", err)
 	}
